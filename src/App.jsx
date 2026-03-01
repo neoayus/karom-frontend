@@ -18,10 +18,18 @@ export default function App(){
     const res = await fetch("http://127.0.0.1:8000/upload", {
       method: "POST", 
       body: formData,
-    })
+    });
     
-    const data = await res.json(); 
-    console.log(data);
+    // take response as blob and download immediately 
+    const blob = await res.blob(); 
+    const url= window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url; 
+    a.download = "converted.srt";
+    document.body.appendChild(a);
+    a.click();
+    a.remove(); 
   }
 
   return(
