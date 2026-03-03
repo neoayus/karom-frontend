@@ -101,7 +101,7 @@ function FileManagement({handleUpload, handleDownload, handleChange, downloadURL
     <div className="file-management">
       <div className="input">
         <label className="upload-btn" htmlFor="upload">CLIQUE 2 ADD FILE</label>
-        <input id="upload" type="file" onChange={handleChange}/>
+        <input id="upload" type="file" accept="txt/srt" onChange={handleChange}/>
       </div>
       <div className="buttons">
         <Button handleClick={handleUpload}> UPLOAD </Button> 
